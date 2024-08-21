@@ -1,0 +1,26 @@
+.footer {
+  box-shadow: 0 0 14px 1px rgba(152, 152, 152, 0.2);
+  background-color: rgb(255, 255, 255);
+  padding: 16px 0 15px 0;
+}
+
+.footer .container {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  color: rgb(186, 179, 179);
+  font-size: 12px;
+  margin-left: 358px;
+}
+/* 425-767 */
+@media screen and (max-width: 767px) {
+  .footer .container {
+    justify-content: space-between;
+  }
+
+  .right {
+    margin-left: 0;
+  }}
+
