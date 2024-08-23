@@ -31,7 +31,9 @@ export class ProductComponent implements OnInit, OnChanges {
     this.product = {
       image: '',
       title: '',
-      subTitle: ''
+      subTitle: '',
+      dateTime:  ''
+
     }
   }
 

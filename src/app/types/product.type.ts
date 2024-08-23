@@ -1,5 +1,6 @@
 export type ProductType = {
   image: string,
   title: string,
-  subTitle: string
+  subTitle: string,
+  dateTime: string
 }

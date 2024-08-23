@@ -63,9 +63,9 @@
 </section>
 <section class="products" #productsElement>
   <div class="container">
-    <h2 class="products-title">Choose your favorite pizza</h2>
+    <h2 class="products-title">Choose your favorite pizza {{ lateData | async }}</h2>
     <div class="product-items">
-      <product *ngFor="let product of products" [product]='product'
+      <product *ngFor="let product of products | chickenProducts" [product]='product'
                (addToCardEvent)="addToCart($event, orderElement)"></product>
     </div>
   </div>
@@ -77,7 +77,8 @@
       <div class="order-text-message">
         We are guaranteed to deliver your pizza within 30 minutes of placing your order. If we're even
         1
-        minute - you get the whole order for free and a voucher for a discount on your next order. We pride ourselves on our
+        minute - you get the whole order for free and a voucher for a discount on your next order. We pride ourselves on
+        our
         service
         and we will do everything to make our client satisfied and not left hungry!
       </div>
