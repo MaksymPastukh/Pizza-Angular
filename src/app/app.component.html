@@ -83,7 +83,9 @@
       </div>
     </div>
     <div class="order-form">
-      <input type="text" class="order-input" id="product-input" placeholder="Pizza"
+      <input type="text" class="order-input" coolInput id="product-input" placeholder="Pizza"
+             [coolInputDefaultBgColor]="'grey'"
+             [coolInputFocusBgColor]="'red'"
              [(ngModel)]="formValues.productTitle">
       <input type="text" class="order-input" id="address-input" placeholder="Delivery address"
              [(ngModel)]="formValues.address">

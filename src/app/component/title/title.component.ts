@@ -20,15 +20,9 @@ export class TitleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    // console.log(this.second)
-  }
 
   toUpper() {
     return this.title.toUpperCase()
   }
 
-  toLover() {
-    return this.title.toLowerCase()
-  }
 }
