@@ -65,7 +65,7 @@
   <div class="container">
     <h2 class="products-title">Choose your favorite pizza {{ lateData | async }}</h2>
     <div class="product-items">
-      <product *ngFor="let product of products | chickenProducts" [product]='product'
+      <product *ngFor="let product of products" [product]='product'
                (addToCardEvent)="addToCart($event, orderElement)"></product>
     </div>
   </div>
