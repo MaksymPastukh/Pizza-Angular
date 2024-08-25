@@ -1,4 +1,5 @@
 import {Component, ContentChild, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {CardService} from "../../services/card.service";
 
 @Component({
   selector: 'header-component',
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
   @ContentChild('productsElement')
   public elemProduct!: HTMLElement
 
-  constructor() {
+  constructor(public cardService: CardService) {
   }
 
   public scrollTo(target: HTMLElement): void {

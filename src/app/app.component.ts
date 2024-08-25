@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ProductType} from "./types/product.type";
-import {ProductService} from "./servises/product.service";
+import {ProductService} from "./services/product.service";
+import {CardService} from "./services/card.service";
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
 
   lateData: Promise<string> | null = null
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, public cardService: CardService) {
 
   }
 
@@ -40,7 +41,7 @@ export class AppComponent implements OnInit {
   public addToCart(title: string, target: HTMLElement): void {
     this.scrollTo(target)
     this.formValues.productTitle = title
-
+    this.cardService.count++
   }
 
   public createOrder() {
