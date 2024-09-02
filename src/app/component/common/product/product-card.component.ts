@@ -3,23 +3,20 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
-  OnInit,
   Output,
-  SimpleChanges,
   ViewChild
 } from '@angular/core';
-import {ProductType} from "../../types/product.type";
+import {ProductType} from "../../../types/product.type";
 import {TitleComponent} from "../title/title.component";
-import {CartProductService} from "../../services/cart-product.service";
+import {CartProductService} from "../../../services/cart-product.service";
 
 @Component({
-  selector: 'product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
+  selector: 'product-card',
+  templateUrl: './product-card.component.html',
+  styleUrls: ['./product-card.component.scss'],
   providers: [CartProductService]
 })
-export class ProductComponent {
+export class ProductCardComponents {
   @Input() product: ProductType
   @Output() addToCardEvent: EventEmitter<string> = new EventEmitter<string>()
 
@@ -31,6 +28,7 @@ export class ProductComponent {
 
   constructor(public cartProductService: CartProductService) {
     this.product = {
+      id: 0,
       image: '',
       title: '',
       subTitle: '',

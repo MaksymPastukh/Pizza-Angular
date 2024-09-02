@@ -1,0 +1,28 @@
+<section class="order" id="order" #orderElement>
+  <div class="container">
+    <div class="order-text">
+      <div class="order-text-title double-title"><span>Stop thinking!</span>We deliver your order in 30 minutes!</div>
+      <div class="order-text-message">
+        We are guaranteed to deliver your pizza within 30 minutes of placing your order. If we're even
+        1
+        minute - you get the whole order for free and a voucher for a discount on your next order. We pride ourselves on
+        our
+        service
+        and we will do everything to make our client satisfied and not left hungry!
+      </div>
+    </div>
+    <div class="order-form">
+      <input type="text" class="order-input" coolInput id="product-input" placeholder="Pizza"
+             [coolInputDefaultBgColor]="'grey'"
+             [coolInputFocusBgColor]="'red'"
+             [(ngModel)]="formValues.productTitle">
+      <input type="text" class="order-input" id="address-input" placeholder="Delivery address"
+             [(ngModel)]="formValues.address">
+      <input type="text" class="order-input" id="phone-input" placeholder="Phone" [(ngModel)]="formValues.phone">
+      <button class="btn" (click)="createOrder()">Checkout</button>
+    </div>
+    <div class="order-image">
+      <img src="assets/images/pizzzzza.png" alt="Pizza">
+    </div>
+  </div>
+</section>

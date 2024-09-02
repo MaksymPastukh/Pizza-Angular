@@ -10,6 +10,5 @@ export class CartProductService {
   }
 
   getCommonCount() {
-    return this.count + '/' + this.cartService.count
   }
 }

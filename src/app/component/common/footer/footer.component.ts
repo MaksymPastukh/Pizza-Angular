@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {CardService} from "../../services/card.service";
 
 @Component({
   selector: 'footer-component',
@@ -8,7 +7,7 @@ import {CardService} from "../../services/card.service";
 })
 export class FooterComponent implements OnInit {
 
-  constructor(public cardService: CardService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

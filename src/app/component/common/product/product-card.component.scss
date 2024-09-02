@@ -31,8 +31,16 @@
 .product-action .btn {
   width: 242px;
   height: 50px;
-  background-color: rgb(255, 175, 24);
   padding: 17px;
+}
+
+.product-action {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-action .btn.btn-white {
+  margin-top: 10px;
 }
 
 

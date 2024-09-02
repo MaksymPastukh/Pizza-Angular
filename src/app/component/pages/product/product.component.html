@@ -1,0 +1,10 @@
+<section class="products" id="products">
+  <div class="container">
+    <h2 class="products-title">Choose your favorite pizza</h2>
+    <div class="product-items">
+      <product-card *ngFor="let product of products" [product]='product'></product-card>
+<!--      <product-card *ngFor="let product of products" [product]='product'-->
+<!--               (addToCardEvent)="addToCart($event)"></product-card>-->
+    </div>
+  </div>
+</section>

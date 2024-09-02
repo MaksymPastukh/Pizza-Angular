@@ -32,6 +32,10 @@
   text-decoration: none;
 }
 
+.menu-item a.active {
+  color: black;
+}
+
 .burger {
   display: none;
 }

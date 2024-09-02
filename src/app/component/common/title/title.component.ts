@@ -1,5 +1,4 @@
 import {Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
-import {ProductType} from "../../types/product.type";
 
 @Component({
   selector: 'custom-title',
