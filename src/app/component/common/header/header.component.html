@@ -48,8 +48,8 @@
       </ul>
     </nav>
     <div class="cart">
-      <a href="#" (click)="login()">Log In</a>
-      <a href="#" (click)="logout()">Log Out</a>
+      <a href="#" (click)="login()" *ngIf="!loggedState">Log In</a>
+      <a href="#" (click)="logout()" *ngIf="loggedState">Log Out</a>
     </div>
   </div>
 </header>

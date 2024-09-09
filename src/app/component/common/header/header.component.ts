@@ -9,10 +9,16 @@ import {AuthService} from "../../../auth/auth.service";
 })
 export class HeaderComponent implements OnInit {
 
+  public loggedState: boolean = false
+
   constructor(private cartService: CardService, private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.authService.isLoggedSubject.subscribe((isLoggedIn: boolean) => {
+      this.loggedState = isLoggedIn
+      console.log('State has been changed : ' + isLoggedIn)
+    })
   }
 
   login() {
