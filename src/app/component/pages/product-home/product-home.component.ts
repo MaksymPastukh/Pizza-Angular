@@ -17,7 +17,7 @@ export class ProductHomeComponent implements OnInit {
       id: 0,
       image: '',
       title: '',
-      subTitle: '',
+      description: '',
       dateTime:  ''
     }
   }

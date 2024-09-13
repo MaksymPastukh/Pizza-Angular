@@ -31,7 +31,7 @@ export class ProductCardComponents {
       id: 0,
       image: '',
       title: '',
-      subTitle: '',
+      description: '',
       dateTime:  ''
     }
   }
