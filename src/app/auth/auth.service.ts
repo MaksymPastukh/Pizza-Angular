@@ -11,6 +11,10 @@ export class AuthService {
   public isLoggedSubject: Subject<boolean> = new Subject<boolean>()
   private isLogged = false
 
+  getToken() {
+    return `authToken`
+  }
+
   logIn() {
     this.isLogged = true
     this.isLoggedSubject.next(this.isLogged)

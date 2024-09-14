@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CardService} from "../../../services/card.service";
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
+import {CreateOrderService} from "../../../services/create-order.service";
 
 @Component({
   selector: 'app-order',
@@ -10,7 +11,7 @@ import {Subscription} from "rxjs";
 })
 export class OrderComponent implements OnInit, OnDestroy {
 
-  constructor(private cartService: CardService, private activateRoute: ActivatedRoute) {
+  constructor(private cartService: CardService, private activateRoute: ActivatedRoute, private createOrderService: CreateOrderService) {
   }
 
   public formValues = {
@@ -20,6 +21,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   }
 
   private subscription: Subscription | null = null
+  private subscriptionOrder: Subscription | null = null
 
   ngOnInit(): void {
     // if(this.cartService.product) {
@@ -40,6 +42,7 @@ export class OrderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription?.unsubscribe()
+    this.subscriptionOrder?.unsubscribe()
   }
 
   public createOrder() {
@@ -55,12 +58,30 @@ export class OrderComponent implements OnInit, OnDestroy {
       alert('Введите телефон')
       return
     }
-    alert('Спасибо за заказ')
 
-    this.formValues = {
-      productTitle: '',
-      address: '',
-      phone: ''
-    }
+    this.subscriptionOrder = this.createOrderService.createOrder({
+      product: this.formValues.productTitle,
+      address: this.formValues.address,
+      phone: this.formValues.phone,
+    })
+      .subscribe(
+        {
+          next: response => {
+            if (response.success && !response.message) {
+              alert('Thank you for your order')
+
+              this.formValues = {
+                productTitle: '',
+                address: '',
+                phone: ''
+              }
+            } else {
+              alert('An error has occurred')
+            }
+          },
+          error: err => {
+            console.log(err)
+          }
+        })
   }
 }

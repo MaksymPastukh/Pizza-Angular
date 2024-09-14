@@ -1,16 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 import {ProductType} from "../../../types/product.type";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-product-home',
   templateUrl: './product-home.component.html',
   styleUrls: ['./product-home.component.scss']
 })
-export class ProductHomeComponent implements OnInit {
+export class ProductHomeComponent implements OnInit, OnDestroy {
 
   product: ProductType
+
+  private subscription: Subscription | null = null
 
   constructor(private activeRoute: ActivatedRoute, private productService: ProductService, private router: Router) {
     this.product = {
@@ -18,21 +21,28 @@ export class ProductHomeComponent implements OnInit {
       image: '',
       title: '',
       description: '',
-      dateTime:  ''
+      dateTime: ''
     }
   }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params) => {
       if (params['id']) {
-        const product = this.productService.getProduct(+params['id'])
-        if(product) {
-          this.product = product
-        } else  {
-          this.router.navigate(['/'])
-        }
+        this.subscription = this.productService.getProduct(+params['id'])
+          .subscribe({
+            next: product => {
+              this.product = product
+            },
+            error: (err) => {
+              this.router.navigate(['/'])
+            }
+          })
       }
     })
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe()
   }
 
 

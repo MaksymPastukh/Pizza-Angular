@@ -17,7 +17,7 @@ export class ProductService {
     return this.http.get<ProductType[]>(`https://testologia.ru/pizzas`)
   }
 
-  getProduct(id: number): ProductType | undefined {
-    return this.products.find(item => (item.id === id))
+  getProduct(id: number): Observable<ProductType> {
+    return this.http.get<ProductType>(`https://testologia.ru/pizzas?id=${id}`)
   }
 }
