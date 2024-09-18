@@ -5,6 +5,7 @@ import {AboutComponent} from "./about/about.component";
 import {MainComponent} from "./main/main.component";
 import {SharedModule} from "../../shared/shared.module";
 import {RouterModule} from "@angular/router";
+import {NgbModalModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     RouterModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    NgbModalModule
   ],
   exports: [
     HomeRoutingModule,

@@ -41,15 +41,27 @@
 </svg>
       </div>
       <ul>
-        <li  class="menu-item"><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Home</a></li>
+        <li class="menu-item"><a routerLink="" routerLinkActive="active"
+                                 [routerLinkActiveOptions]="{exact: true}">Home</a></li>
         <li class="menu-item"><a routerLink="/product" routerLinkActive="active">Pizza</a></li>
         <li class="menu-item"><a routerLink="/about" routerLinkActive="active">About</a></li>
         <li class="menu-item"><a routerLink="/order" routerLinkActive="active">Order</a></li>
       </ul>
     </nav>
     <div class="cart">
-      <a href="#" (click)="login()" *ngIf="!loggedState">Log In</a>
-      <a href="#" (click)="logout()" *ngIf="loggedState">Log Out</a>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngIf="!loggedState" (click)="login()">
+          <mat-icon>login</mat-icon>
+          <span>Log In</span>
+        </button>
+        <button mat-menu-item *ngIf="loggedState" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Log Out</span>
+        </button>
+      </mat-menu>
     </div>
   </div>
 </header>

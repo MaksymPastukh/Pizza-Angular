@@ -8,6 +8,7 @@ import {ChickenDescriptionPipe} from "./pipes/chicken-description.pipe";
 import {ChickenProductsPipe} from "./pipes/chicken-products.pipe";
 import {WordUpperPipe} from "./pipes/word-upper.pipe";
 import {RouterLinkActive, RouterLinkWithHref} from "@angular/router";
+import { PopupComponent } from './component/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -17,17 +18,19 @@ import {RouterLinkActive, RouterLinkWithHref} from "@angular/router";
     IsChickenDirective,
     ChickenDescriptionPipe,
     ChickenProductsPipe,
-    WordUpperPipe
+    WordUpperPipe,
+    PopupComponent
   ],
   exports: [
     CoolInputDirective,
     TitleComponent,
     ProductCardComponents,
+    PopupComponent,
   ],
   imports: [
     CommonModule,
     RouterLinkActive,
-    RouterLinkWithHref
+    RouterLinkWithHref,
   ]
 })
 export class SharedModule {

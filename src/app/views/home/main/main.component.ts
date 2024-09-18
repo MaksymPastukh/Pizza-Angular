@@ -1,17 +1,24 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {map, Observable, Subject, Subscription} from "rxjs";
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {map, Subject, Subscription} from "rxjs";
 import {CardService} from "../../../shared/services/card.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {PopupComponent} from "../../../shared/component/popup/popup.component";
+
+
+// Используя declare мы предупреждаем компилятор об использовании существующе глобальной перемеренной на странице
+// declare var bootstrap: any
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit, OnDestroy {
+export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private subject: Subject<number>
 
-  constructor(public cardService: CardService) {
+
+  constructor(public cardService: CardService, private modalService: NgbModal) {
     this.subject = new Subject<number>()
     let count = 0
     const interval = setInterval(() => {
@@ -51,6 +58,8 @@ export class MainComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    // const myModalAlternative = new bootstrap.Modal('#myModal', {})
+    // myModalAlternative.show()
     this.subscription = this.subject.subscribe({
       next: (param: number) => {
         console.log(param, ' subscribe : 1')
@@ -59,6 +68,15 @@ export class MainComponent implements OnInit, OnDestroy {
         console.log("ERROR" + error)
       }
     })
+  }
+
+  @ViewChild(PopupComponent) private popupComponent!: PopupComponent
+
+  ngAfterViewInit() {
+    this.popupComponent.open()
+    // const modalRef = this.modalService.open(PopupComponent);
+    // modalRef.componentInstance.data = 'Main Component';
+    // this.modalService.open(this.popup, {})
   }
 
   ngOnDestroy() {
