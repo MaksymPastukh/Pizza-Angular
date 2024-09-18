@@ -2,7 +2,6 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from
 import {Injectable} from "@angular/core";
 import {Observable, tap} from "rxjs";
 import {AuthService} from "./auth.service";
-import * as http2 from "node:http2";
 
 @Injectable()
 

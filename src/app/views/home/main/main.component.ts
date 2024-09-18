@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CardService} from "../../../services/card.service";
-import {from, map, Observable, Subject, Subscription} from "rxjs";
+import {map, Observable, Subject, Subscription} from "rxjs";
+import {CardService} from "../../../shared/services/card.service";
 
 @Component({
   selector: 'app-main',
@@ -9,7 +9,6 @@ import {from, map, Observable, Subject, Subscription} from "rxjs";
 })
 export class MainComponent implements OnInit, OnDestroy {
 
-  private observable!: Observable<number>
   private subject: Subject<number>
 
   constructor(public cardService: CardService) {
@@ -21,7 +20,6 @@ export class MainComponent implements OnInit, OnDestroy {
     const timeOutComplete = setTimeout(() => {
       this.subject.complete()
     }, 5000)
-
 
 
     // this.observable = from([1, 2, 3, 4, 5])

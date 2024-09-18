@@ -1,6 +1,6 @@
-import {Component, ContentChild, OnInit} from '@angular/core';
-import {CardService} from "../../../services/card.service";
-import {AuthService} from "../../../auth/auth.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../../core/auth/auth.service";
+import {CardService} from "../../services/card.service";
 
 @Component({
   selector: 'header-component',

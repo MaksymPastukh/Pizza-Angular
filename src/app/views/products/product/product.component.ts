@@ -1,10 +1,10 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {ProductType} from "../../../types/product.type";
-import {ProductService} from "../../../services/product.service";
-import {CardService} from "../../../services/card.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {catchError, of, Subscription, tap} from "rxjs";
+import {ProductType} from "../../../../types/product.type";
+import {ProductService} from "../../../shared/services/product.service";
+import {CardService} from "../../../shared/services/card.service";
 
 @Component({
   selector: 'app-product',

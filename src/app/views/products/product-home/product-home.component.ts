@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProductService} from "../../../services/product.service";
-import {ProductType} from "../../../types/product.type";
 import {Subscription} from "rxjs";
+import {ProductService} from "../../../shared/services/product.service";
+import {ProductType} from "../../../../types/product.type";
 
 @Component({
   selector: 'app-product-home',
@@ -30,7 +30,7 @@ export class ProductHomeComponent implements OnInit, OnDestroy {
       if (params['id']) {
         this.subscription = this.productService.getProduct(+params['id'])
           .subscribe({
-            next: product => {
+            next: (product:ProductType) => {
               this.product = product
             },
             error: (err) => {
